@@ -44,4 +44,9 @@ void main(List<String> args) {
   }
 
   tree.print2D(tree);
+
+  print('Tabela de Codificação:');
+  frequency.keys.toList().forEach((key) {
+    print('$key - ${tree.encode(key)}');
+  });
 }
