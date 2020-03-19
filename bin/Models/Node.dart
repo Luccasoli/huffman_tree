@@ -51,4 +51,24 @@ class Node {
   String encode(String char) {
     return '${_encodeUtil(left, char, '0')}${_encodeUtil(right, char, '1')}';
   }
+
+  String decode(List<String> bits) {
+    var current = this;
+    var response = '';
+
+    for (var i = 0; i < bits.length; i++) {
+      if (bits[i] == '0') {
+        current = current.left;
+      } else {
+        current = current.right;
+      }
+
+      if (current.char != null) {
+        response += current.char;
+        current = this;
+      }
+      ;
+    }
+    return response;
+  }
 }

@@ -16,7 +16,7 @@ Map<String, int> countFrequencyEachChar(list) {
 }
 
 void main(List<String> args) {
-  print('Digite seu nome: ');
+  print('Digite um texto para ser compactado: ');
   var input = stdin.readLineSync();
 
   var frequency = countFrequencyEachChar(input.split(''));
@@ -49,4 +49,12 @@ void main(List<String> args) {
   frequency.keys.toList().forEach((key) {
     print('$key - ${tree.encode(key)}');
   });
+
+  print(
+      'Digite uma cadeia de bits que será descompactada com base na tabela acima (ex: 11100011): ');
+  var bits = stdin.readLineSync();
+
+  var decodedMessage = tree.decode(bits.split(''));
+
+  print('Você escreveu: ${decodedMessage}');
 }
